@@ -12,7 +12,7 @@ const projectData = [
     image:port,
     technologies: ["React","Tailwindcss","css","vite","Framer Motions","Draggable Interface"],
     description: "A fully responsive and interactive personal portfolio website designed to highlight my skills, projects, and experience. The site features a unique book-style project layout, draggable Read More panels, custom dark mode toggle with animation, and smooth transitions — all optimized for performance and mobile responsiveness. Built to reflect both design and development proficiency.",
-    github: "https://github.com/Rakesh-honawad/my-portfolio"
+    github: "https://github.com/Rakesh-honawad/Portfolio.git"
   },
   {
     title: "ProcterVisionAI",
