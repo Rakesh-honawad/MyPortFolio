@@ -1,0 +1,10 @@
+{
+    "name": "my-fullstack-project",
+    "private": true,
+    "scripts": {
+        "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\""
+    },
+    "devDependencies": {
+        "concurrently": "^9.1.2"
+    }
+}

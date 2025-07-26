@@ -1,0 +1,17 @@
+/* .section-container {
+  background-color: #f9f9f9; /* Example background color */
+
+.bg-[var(--card-bg)] {
+    background-color: #ffffff;
+    /* Card background color */
+}
+
+.text-[var(--slate)] {
+    color: #4a4a4a;
+    /* Example text color */
+}
+
+.text-[var(--green)] {
+    color: #28a745;
+    /* Example accent color */
+}
