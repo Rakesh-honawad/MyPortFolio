@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const skills = {
-   "Programming Languages": [
+  "Programming Languages": [
     { name: 'Java', logo: 'https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/java/java-original.svg' },
     { name: 'C++', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg' },
     { name: 'Go', logo: 'https://go.dev/blog/go-brand/Go-Logo/SVG/Go-Logo_Blue.svg' },
@@ -19,7 +18,7 @@ const skills = {
     { name: 'React', logo: 'https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/react/react-original.svg', isInvert: true },
     { name: 'Tailwind', logo: 'https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/tailwindcss/tailwindcss-original.svg', isInvert: true },
   ],
-   "Cloud & DevOps": [
+  "Cloud & DevOps": [
     { name: 'AWS', logo: 'https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
     { name: 'Terraform', logo: 'https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/terraform/terraform-original.svg' },
     { name: 'Docker', logo: 'https://cdn.jsdelivr.net/npm/devicon@2.16.0/icons/docker/docker-original.svg' },
@@ -40,51 +39,48 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="section-container py-20 bg-[var(--background)]">
-      <div
-        className="text-center mb-12 py-8 rounded-lg shadow-md"
-        data-aos="fade-down"
-      >
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-wide text-[var(--green)]">
+    <section id="skills" className="section-container py-16 px-4 sm:px-8 bg-[var(--background)]">
+      <div className="text-center mb-10" data-aos="fade-down">
+        <h2 className="text-2xl sm:text-3xl font-extrabold tracking-wide text-[var(--green)]">
           Skills & Technologies
         </h2>
-        <p className="mt-2 max-w-2xl mx-auto text-[var(--slate)]">
+        <p className="mt-2 max-w-xl mx-auto text-sm sm:text-base text-[var(--slate)]">
           Technologies I've worked with across the stack.
         </p>
       </div>
 
-      <div className="grid gap-12">
+      <div className="space-y-10">
         {Object.entries(skills).map(([category, items], catIdx) => (
           <div key={category}>
             <h3
-              className="text-2xl font-bold mb-6 text-[var(--text)]"
+              className="text-lg sm:text-xl font-bold mb-4 text-[var(--text)]"
               data-aos="fade-right"
-              data-aos-delay={catIdx * 200}
+              data-aos-delay={catIdx * 150}
             >
               {category}
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-6">
               {items.map((skill, idx) => {
                 const props = useSpring({
                   from: { opacity: 0, transform: 'scale(0.5)' },
                   to: { opacity: 1, transform: 'scale(1)' },
-                  delay: catIdx * 200 + idx * 100,
+                  delay: catIdx * 200 + idx * 80,
                 });
 
                 return (
                   <animated.div
                     key={skill.name}
                     style={props}
-                    className="group flex flex-col items-center p-4 rounded-2xl shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl bg-[var(--card-bg)]"
+                    className="group flex flex-col items-center p-3 sm:p-4 rounded-xl shadow-md hover:shadow-xl bg-[var(--card-bg)]"
                   >
                     <img
                       src={skill.logo}
                       alt={skill.name}
-                      className={`h-12 w-12 mb-2 transition-transform duration-300 transform group-hover:scale-110 ${
+                      className={`h-8 w-8 sm:h-10 sm:w-10 mb-2 transition-transform transform group-hover:scale-110 ${
                         skill.isInvert ? 'invert' : ''
                       }`}
                     />
-                    <span className="font-medium text-[var(--slate)]">{skill.name}</span>
+                    <span className="text-xs sm:text-sm font-medium text-[var(--slate)] text-center">{skill.name}</span>
                   </animated.div>
                 );
               })}

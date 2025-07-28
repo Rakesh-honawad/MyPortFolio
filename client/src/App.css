@@ -54,3 +54,12 @@
 html {
     scroll-behavior: smooth;
 }
+
+
+/* Prevent horizontal scroll caused by overflowing content */
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}

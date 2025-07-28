@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer
-      className="bg-[var(--bg-footer)] text-center px-4 py-8"
+      className="bg-[var(--bg-footer)] text-center px-3 py-1"
       style={{ backgroundColor: 'var(--background)', color: 'var(--slate)' }}
     >
       {/* Mobile Social Icons */}
@@ -69,9 +69,8 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-
       {/* Footer Text */}
-      <div style={{ color: "yellowgreen" }} className="text-sm tracking-wide">
+      <div style={{ color: "yellowgreen" }} className="text-xs tracking-wide py-4">
         Made with <span style={{ color: 'var(--green)' }}>❤️</span> by Rakesh Honawad
       </div>
     </footer>

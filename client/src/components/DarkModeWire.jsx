@@ -54,7 +54,10 @@ const DarkModeWire = () => {
     document.addEventListener('mouseup', handleMouseUp);
   };
    const handleTouchStart = (e) => {
-    startY.current = e.touches[0].clientY;
+    if (window.scrollY === 0) {
+      e.preventDefault(); // Stop pull-to-refresh
+      startY.current = e.touches[0].clientY;
+    }
   };
 
   const handleTouchMove = (e) => {

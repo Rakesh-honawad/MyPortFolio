@@ -178,6 +178,15 @@ html {
     scroll-behavior: smooth;
 }
 
+
+/* Prevent horizontal scroll caused by overflowing content */
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -191,4 +200,11 @@ html {
 
 .animate-fade-in {
     animation: fade-in 0.4s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .rope-container {
+        right: 0.8rem;
+        /* or adjust this value as needed */
+    }
 }
