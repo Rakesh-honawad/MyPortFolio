@@ -32,7 +32,7 @@ const projectData = [
    {
     title: "MystiGlyph",
     image:keyboard,
-    technologies: ["On - progress"],
+    technologies: ["In - progress"],
     description: "MystiGlyph is a custom keyboard prototype designed to type in a symbolic or encrypted language for private messaging. It allows users to communicate using visually encoded symbols, enhancing privacy. Future plans include integrating AI for dynamic encryption and automated decoding.",
     github: "https://github.com/Rakesh-honawad/MystiGlyph"
   },  

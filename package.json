@@ -2,9 +2,13 @@
     "name": "my-fullstack-project",
     "private": true,
     "scripts": {
-        "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\""
+        "dev": "npm run dev --prefix client"
     },
     "devDependencies": {
         "concurrently": "^9.1.2"
+    },
+    "dependencies": {
+        "dotenv": "^17.2.1",
+        "nodemailer": "^7.0.5"
     }
 }
