@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect"; // Adjust the path if needed
 
 const aboutBlocks = [
   {
@@ -31,7 +32,7 @@ const About = () => {
   return (
     <section
       id="about-me"
-      className="section-container min-h-screen py-24 px-4 sm:px-6 lg:px-8"
+      className="section-container min-h-screen relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
       style={{ background: 'var(--background)' }}
     >
       {/* Section Header */}
@@ -42,21 +43,35 @@ const About = () => {
         <span className="h-1 bg-green-400 mx-auto mt-2 rounded-full animate-pulse" />
       </div>
 
-      {/* About Blocks */}
-      <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      {/* About Cards with CanvasRevealEffect */}
+      <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-stretch">
         {aboutBlocks.map((block, idx) => (
           <div
             key={block.id}
-            className="p-6 sm:p-8 md:p-10 backdrop-blur-md rounded-2xl shadow-2xl transition-transform duration-300 hover:scale-105 cursor-pointer"
-            style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)' }}
+            className="relative group rounded-2xl overflow-hidden border border-white/20 flex flex-col justify-between"
             data-aos="zoom-in"
             data-aos-delay={idx * 150}
           >
-            <div className="text-5xl mb-4">{block.icon}</div>
-            <h3 className="text-xl font-semibold" style={{ color: 'var(--slate)' }}>
-              {block.title}
-            </h3>
-            <p style={{ color: 'var(--light-slate)' }}>{block.content}</p>
+            {/* Canvas Reveal Effect */}
+            <div className="absolute inset-0 z-0 h-full w-full pointer-events-none">
+              <CanvasRevealEffect
+                animationSpeed={3}
+                containerClassName="h-full w-full"
+                dotSize={2}
+                showGradient
+                gradientBackgroundStart="rgba(255,255,255,0)"
+                gradientBackgroundEnd="rgba(255,255,255,0.2)"
+              />
+            </div>
+
+            {/* Card Content */}
+            <div className="relative z-10 p-6 sm:p-8 md:p-10 backdrop-blur-md bg-white/60 shadow-2xl transition-transform duration-300 hover:scale-105 cursor-pointer h-full">
+              <div className="text-5xl mb-4">{block.icon}</div>
+              <h3 className="text-xl font-semibold text-slate-800">
+                {block.title}
+              </h3>
+              <p className="text-slate-600">{block.content}</p>
+            </div>
           </div>
         ))}
       </div>

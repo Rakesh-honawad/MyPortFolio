@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/stateful-button";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -31,40 +32,39 @@ const Contact = () => {
     );
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!isValid()) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!isValid()) return;
 
-  setIsMailSending(true);
-  setIsError(false);
+    setIsMailSending(true);
+    setIsError(false);
 
-  try {
-    const response = await fetch("/api/email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: form.name,
-        email: form.email,
-        message: form.message,
-      }),
-    });
+    try {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
 
-    if (!response.ok) {
-      throw new Error("Failed to send email");
+      if (!response.ok) {
+        throw new Error("Failed to send email");
+      }
+
+      const data = await response.json();
+      setUploadMessage(data.message || "Message sent successfully!");
+      setForm({ name: "", email: "", message: "" });
+      setTouched({});
+    } catch (err) {
+      setIsError(true);
+      setUploadMessage(err.message || "Something went wrong");
+    } finally {
+      setIsMailSending(false);
     }
-
-    const data = await response.json();
-    setUploadMessage(data.message || "Message sent successfully!");
-    setForm({ name: "", email: "", message: "" });
-    setTouched({});
-  } catch (err) {
-    setIsError(true);
-    setUploadMessage(err.message || "Something went wrong");
-  } finally {
-    setIsMailSending(false);
-  }
-};
-
+  };
 
   return (
     <section
@@ -127,32 +127,30 @@ const handleSubmit = async (e) => {
         </div>
 
         {/* Email Input */}
-{/* Email Input */}
-<div>
-  <input
-    type="email"
-    name="email"
-    value={form.email}
-    onChange={handleChange}
-    onBlur={handleBlur}
-    placeholder="Your email ID" // ✅ updated placeholder
-    className="w-full px-4 py-3 rounded border outline-none transition-all duration-200 placeholder:text-gray-500"
-    style={{
-      background: "var(--lightest-slate)",
-      color: "var(--slate)",
-      borderColor:
-        touched.email && !/\S+@\S+\.\S+/.test(form.email)
-          ? "red"
-          : "var(--border)",
-    }}
-  />
-  {touched.email && !/\S+@\S+\.\S+/.test(form.email) && (
-    <div className="text-red-500 text-sm mt-1">
-      Valid email is required.
-    </div>
-  )}
-</div>
-
+        <div>
+          <input
+            type="email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="Your email ID"
+            className="w-full px-4 py-3 rounded border outline-none transition-all duration-200 placeholder:text-gray-500"
+            style={{
+              background: "var(--lightest-slate)",
+              color: "var(--slate)",
+              borderColor:
+                touched.email && !/\S+@\S+\.\S+/.test(form.email)
+                  ? "red"
+                  : "var(--border)",
+            }}
+          />
+          {touched.email && !/\S+@\S+\.\S+/.test(form.email) && (
+            <div className="text-red-500 text-sm mt-1">
+              Valid email is required.
+            </div>
+          )}
+        </div>
 
         {/* Message Input */}
         <div>
@@ -168,9 +166,7 @@ const handleSubmit = async (e) => {
               background: "var(--lightest-slate)",
               color: "var(--slate)",
               borderColor:
-                touched.message && !form.message
-                  ? "red"
-                  : "var(--border)",
+                touched.message && !form.message ? "red" : "var(--border)",
             }}
           />
           {touched.message && !form.message && (
@@ -181,10 +177,10 @@ const handleSubmit = async (e) => {
         </div>
 
         {/* Submit Button */}
-        <button
+        <Button
           type="submit"
           disabled={!isValid() || isMailSending}
-          className="w-full px-8 py-4 border border-green-400 text-green-400 rounded hover:bg-green-400/10 transition-all font-semibold"
+          className="w-full border border-green-400 text-green-400 rounded hover:bg-green-400/10 transition-all font-semibold"
         >
           {isMailSending ? (
             <span className="flex items-center justify-center gap-2">
@@ -212,7 +208,7 @@ const handleSubmit = async (e) => {
           ) : (
             "Say Hello"
           )}
-        </button>
+        </Button>
 
         {/* Upload Message */}
         {uploadMessage && (

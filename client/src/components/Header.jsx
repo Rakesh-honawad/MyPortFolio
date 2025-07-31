@@ -37,7 +37,8 @@ const Header = () => {
       <nav className="max-w-6xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="text-2xl font-bold text-green-400">
-           <img src={logo} className="h-20 w-28 md:h-max md:w-40 inline" />
+           <img src={logo} className="h-16 w-32 md:h-20 md:w-40 object-contain" alt="Logo" />
+
         </a>
 
         {/* Desktop Links */}
