@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import logo from '../assets/logos.png'
+import logo from '../assets/Logos.gif'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,9 +36,8 @@ const Header = () => {
     >
       <nav className="max-w-6xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="text-2xl font-bold text-green-400">
-           <img src={logo} className="h-16 w-32 md:h-20 md:w-40 object-contain" alt="Logo" />
-
+        <a href="#" className="text-2xl font-bold text-green-400 flex items-center md:block justify-start w-auto md:w-auto lg:ml-[-150px]">
+           <img src={logo} className="h-32 w-64 md:h-36 md:w-[28rem] object-contain -ml-16 md:-ml-8" alt="Logo" />
         </a>
 
         {/* Desktop Links */}
