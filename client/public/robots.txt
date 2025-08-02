@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rakeshhonawad.vercel.app/sitemap.xml

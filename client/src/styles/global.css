@@ -1,0 +1,211 @@
+/*─────────────────────────────────────────────────────────────
+  Tailwind Base Layers
+─────────────────────────────────────────────────────────────*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*─────────────────────────────────────────────────────────────
+  Light Theme Variables
+─────────────────────────────────────────────────────────────*/
+
+
+/*─────────────────────────────────────────────────────────────
+  Light Theme Variables
+─────────────────────────────────────────────────────────────*/
+
+:root {
+    --background: #f1f7f8;
+    /* general page background */
+    --bg-primary: #ffffff;
+    /* sections, cards */
+    --bg-secondary: #f1f5f9;
+    /* softer panels or boxes */
+    --bg-accent: #a9bad7;
+    /* for highlighted sections */
+    --bg-hero: #eceef1;
+    /* hero gradients start */
+    --bg-footer: #0f172a;
+    --slate: #334155;
+    --light-slate: #64748b;
+    --lightest-slate: #f1f5f9;
+    --white: #ffffff;
+    --green: #10b981;
+}
+
+
+/*─────────────────────────────────────────────────────────────
+  Dark Theme Variables
+─────────────────────────────────────────────────────────────*/
+
+:root.dark {
+    --background: #0f172a;
+    --bg-primary: #1e293b;
+    --bg-secondary: #334155;
+    --bg-accent: #475569;
+    --bg-hero: #1e293b;
+    --bg-footer: #000000;
+    --slate: #f1f5f9;
+    --light-slate: #cbd5e1;
+    --lightest-slate: #94a3b8;
+    --white: #0f172a;
+    --green: #10b981;
+}
+
+
+/*─────────────────────────────────────────────────────────────
+  Global Page Styles
+─────────────────────────────────────────────────────────────*/
+
+html,
+body {
+    @apply bg-[var(--background)] text-[var(--slate)];
+    transition: background-color 0.3s ease, color 0.3s ease;
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply antialiased;
+   
+}
+
+a {
+    color: var(--green);
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--light-slate);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--slate);
+}
+
+p {
+    color: var(--light-slate);
+    line-height: 1.6;
+}
+
+button {
+    background-color: var(--green);
+    color: var(--white);
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: var(--light-slate);
+}
+
+
+/*─────────────────────────────────────────────────────────────
+  Pull Wire Styling
+─────────────────────────────────────────────────────────────*/
+
+.rope-container {
+    position: fixed;
+    top: 80px;
+    /* Below header */
+    right: 50px;
+    z-index: 50;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rope {
+    width: 4px;
+    background: linear-gradient(to bottom, #d2b48c, #8b4513);
+    border-radius: 4px;
+    transition: height 0.3s ease;
+    animation: rope-sway 3s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+:root.dark .rope {
+    background: linear-gradient(to bottom, #f5f5dc, #a0522d);
+}
+
+@keyframes rope-sway {
+    0%,
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-50%) rotate(1.5deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(-1.5deg);
+    }
+    75% {
+        transform: translateX(-50%) rotate(0.75deg);
+    }
+}
+
+.cursor-grab {
+    cursor: grab;
+    position: relative;
+    z-index: 1;
+}
+
+.bg-primary {
+    background-color: var(--bg-primary);
+}
+
+.bg-secondary {
+    background-color: var(--bg-secondary);
+}
+
+.bg-accent {
+    background-color: var(--bg-accent);
+}
+
+.bg-hero {
+    background-color: var(--bg-hero);
+}
+
+.bg-footer {
+    background-color: var(--bg-footer);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Prevent horizontal scroll caused by overflowing content */
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.4s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .rope-container {
+        right: 0.8rem;
+        /* or adjust this value as needed */
+    }
+}

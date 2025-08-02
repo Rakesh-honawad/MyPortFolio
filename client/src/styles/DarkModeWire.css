@@ -1,0 +1,150 @@
+/* Container fixed to top right */
+
+.rope-container {
+    position: fixed;
+    top: 80px;
+    /* Below header */
+    right: 2.5rem;
+    z-index: 50;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    user-select: none;
+}
+
+
+/* Rope design */
+
+.rope {
+    width: 8px;
+    background: repeating-linear-gradient( to bottom, #8b5e3c, #8b5e3c 4px, #c19a6b 4px, #c19a6b 8px);
+    border-radius: 4px;
+    position: relative;
+    transition: height 0.3s ease;
+    transform-origin: top center;
+    animation: swing 3.5s ease-in-out infinite;
+}
+
+
+/* Rope swing motion */
+
+.rope.swing {
+    animation: swing 4s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(1.5deg);
+    }
+    50% {
+        transform: rotate(-2deg);
+    }
+    75% {
+        transform: rotate(1.2deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+/* Chain pull handle (like a ball at bottom of chain) */
+
+.chain-handle {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    touch-action: none;
+    border-radius: 50%;
+    background-color: #1f2937;
+    /* Slate */
+    border: 4px solid #3c66a7;
+    /* Light border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: grab;
+    transition: transform 0.2s ease;
+}
+
+html.dark .chain-handle {
+    background-color: #f3f4f6;
+    border-color: #4b5563;
+}
+
+.chain-handle::after {
+    content: '💡 Pull me!';
+    position: absolute;
+    top: -32px;
+    right: -40px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    background: var(--bg-secondary);
+    color: var(--slate);
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.chain-handle:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chain-handle::after {
+    content: '💡 Pull ⬇️!';
+    position: absolute;
+    top: -32px;
+    right: -40px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    background: var(--bg-secondary);
+    color: var(--slate);
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.chain-handle:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes glow {
+    0%,
+    100% {
+        box-shadow: 0 0 6px var(--green);
+    }
+    50% {
+        box-shadow: 0 0 14px var(--green);
+    }
+}
+
+.chain-handle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--green);
+    cursor: grab;
+    /* position: relative; */
+    animation: glow 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .rope-container {
+        right: 5rem;
+        /* or adjust this value as needed */
+    }
+}
