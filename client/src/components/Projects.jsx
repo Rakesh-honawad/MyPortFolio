@@ -6,6 +6,7 @@ import emailbot from '../assets/emailbot.webp'
 import keyboard from '../assets/keyboard.webp'
 import exam  from '../assets/exam.webp'
 import port from '../assets/port.webp'
+
 const projectData = [
   {
     title: "My-PortFolio",
@@ -209,60 +210,56 @@ const Projects = () => {
   }, [readMoreIndex]);
 
   return (
-    <div className="book-container" id="projects">
+    <section className="book-container" id="projects">
       <div className="book-page">
-        <div className={`project-page ${currentPage === 0 ? 'active' : 'inactive'}`}>
+        <article className={`project-page ${currentPage === 0 ? 'active' : 'inactive'}`}>
           <h1 className="project-title">📘 Projects</h1>
           <p className="project-description">
             Explore my personal and professional projects by flipping the pages.
           </p>
-        </div>
+        </article>
 
         {projectData.map((project, index) => {
           const isCurrent = index + 1 === currentPage;
           const isExpanded = readMoreIndex === index;
 
           return (
-            <div
+            <article
               key={index}
               className={`project-page ${isCurrent ? 'active' : 'inactive'}`}
               style={{
                 backgroundImage: `url(${project.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                
               }}
             >
-              <h2 className="project-title ">{project.title}</h2>
-              <div className="project-content">
-                <div className="tech-list-inline">
-                  {`{ ${project.technologies.join(', ')} }`}
-                </div>
-                <div className="project-links">
-                  <a href={project.github} className="book-btn" target="_blank" rel="noreferrer">GitHub</a>
-                  <button className="book-btn" onClick={() => toggleReadMore(index)}>
-                    {isExpanded ? 'Close' : 'Read More'}
-                  </button>
-                </div>
-
-                {isExpanded && (
-                  <div
-                    ref={panelRef}
-                    className="readmore-panel draggable"
-                  >
-                    <p>{project.description}</p>
-                  </div>
-                )}
+              <h2 className="project-title">{project.title}</h2>
+              <div className="tech-list-inline">
+                {`{ ${project.technologies.join(', ')} }`}
               </div>
-            </div>
+              <div className="project-links">
+                <a href={project.github} className="book-btn" target="_blank" rel="noreferrer">GitHub</a>
+                <button className="book-btn" onClick={() => toggleReadMore(index)}>
+                  {isExpanded ? 'Close' : 'Read More'}
+                </button>
+              </div>
+              {isExpanded && (
+                <aside
+                  ref={panelRef}
+                  className="readmore-panel draggable"
+                >
+                  <p>{project.description}</p>
+                </aside>
+              )}
+            </article>
           );
         })}
       </div>
-      <div className="book-controls">
+      <nav className="book-controls">
         <button onClick={prevPage} disabled={currentPage === 0}>◀ Prev</button>
         <button onClick={nextPage} disabled={currentPage === projectData.length}>Next ▶</button>
-      </div>
-    </div>
+      </nav>
+    </section>
   );
 };
 

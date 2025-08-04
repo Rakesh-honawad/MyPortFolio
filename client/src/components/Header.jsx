@@ -37,11 +37,14 @@ const Header = () => {
       <nav className="max-w-6xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="text-2xl font-bold text-green-400 flex items-center md:block justify-start w-auto md:w-auto lg:ml-[-100px]">
-           <img
-  src={logo}
-  className="h-[74px] w-[147px] md:h-[92px] md:w-[254px] object-contain -ml-8 md:-ml-4 drop-shadow-[0_0_32px_rgba(34,197,94,0.9)]"
-  alt="Logo"
-/>
+          <img
+            src={logo}
+            alt="Logo"
+            fetchpriority="high"
+            width="147"
+            height="74"
+            className="h-[74px] w-[147px] md:h-[92px] md:w-[254px] object-contain -ml-8 md:-ml-4 drop-shadow-[0_0_32px_rgba(34,197,94,0.9)]"
+          />
         </a>
 
         {/* Desktop Links */}
