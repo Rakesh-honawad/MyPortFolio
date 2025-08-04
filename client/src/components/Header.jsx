@@ -40,7 +40,7 @@ const Header = () => {
           <img
             src={logo}
             alt="Logo"
-            fetchpriority="high"
+            fetchPriority="high"
             width="147"
             height="74"
             className="h-[74px] w-[147px] md:h-[92px] md:w-[254px] object-contain -ml-8 md:-ml-4 drop-shadow-[0_0_32px_rgba(34,197,94,0.9)]"

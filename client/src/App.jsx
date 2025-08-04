@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import SplashCursor from './components/SplashCursor';
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
@@ -19,15 +19,11 @@ function App() {
 
   // ✅ Force light mode on first load
   document.documentElement.classList.remove("dark");
-
-  // Optional: fetch hello message
-  fetch("http://localhost:5000/api/hello")
-    .then((res) => res.json())
-    .then((data) => setMessage(data.message));
-}, []);
+ }, []);
 
   return (
     <BrowserRouter>
+    <SplashCursor />
     <ScrollToTop />
       <Header />
       <Sidebar />
