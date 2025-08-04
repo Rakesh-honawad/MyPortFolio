@@ -1,4 +1,7 @@
 {
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" }
+  ],
   "headers": [
     {
       "source": "/sitemap.xml",
@@ -9,5 +12,8 @@
         }
       ]
     }
-  ]
+  ],
+  "buildCommand": "cd client && npm install && npm run build",
+  "devCommand": "cd client && npm run dev",
+  "outputDirectory": "client/dist"
 }
