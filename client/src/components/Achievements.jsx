@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "../styles/Achievements.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import aws from "../assets/AWS.jpg";
-import agile from "../assets/IBM_agile.jpg";
-import web from "../assets/IBM_WEB.jpg";
-import edu from "../assets/ibm_edunet.jpg";
-import quiz from "../assets/quiz.jpg";
-import sgc from "../assets/sgc.jpg";
-import swr from "../assets/swr.jpg";
+import aws from "../assets/AWS.webp";
+import agile from "../assets/IBM_agile.webp";
+import web from "../assets/IBM_WEB.webp";
+import edu from "../assets/ibm_edunet.webp";
+import quiz from "../assets/quiz.webp";
+import sgc from "../assets/sgc.webp";
+import swr from "../assets/swr.webp";
 
 const achievements = [
   {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.webp"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

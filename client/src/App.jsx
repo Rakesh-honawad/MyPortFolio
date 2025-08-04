@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Helmet } from "react-helmet";
 
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -15,27 +14,21 @@ function App() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    // Initialize AOS
-    AOS.init({ duration: 1000, once: true });
+  // Initialize AOS
+  AOS.init({ duration: 1000, once: true });
 
-    // ✅ Force light mode on first load
-    document.documentElement.classList.remove("dark");
+  // ✅ Force light mode on first load
+  document.documentElement.classList.remove("dark");
 
-    // Optional: fetch hello message
-    fetch("http://localhost:5000/api/hello")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));
-  }, []);
+  // Optional: fetch hello message
+  fetch("http://localhost:5000/api/hello")
+    .then((res) => res.json())
+    .then((data) => setMessage(data.message));
+}, []);
 
   return (
     <BrowserRouter>
-      <Helmet>
-        <title>My Portfolio</title>
-        <meta name="description" content="Showcasing my projects, experience, and achievements." />
-        <meta name="keywords" content="portfolio, projects, experience, achievements, contact" />
-        <meta name="author" content="Rakesh H" />
-      </Helmet>
-      <ScrollToTop />
+    <ScrollToTop />
       <Header />
       <Sidebar />
       <WireAlert/>

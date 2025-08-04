@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../styles/Project.css';
-import bookstore from '../assets/bookstore.jpg';
-import procter from '../assets/procterVisionAI.png';
-import emailbot from '../assets/emailbot.jpg'
-import keyboard from '../assets/keyboard.jpg'
-import exam  from '../assets/exam.jpg'
-import port from '../assets/port.png'
+import bookstore from '../assets/bookstore.webp';
+import procter from '../assets/procterVisionAI.webp';
+import emailbot from '../assets/emailbot.webp'
+import keyboard from '../assets/keyboard.webp'
+import exam  from '../assets/exam.webp'
+import port from '../assets/port.webp'
 const projectData = [
   {
     title: "My-PortFolio",
