@@ -8,7 +8,7 @@ const aboutBlocks = [
     id: 'whoami',
     title: 'Who I Am',
     icon: '👋',
-    content: `I'm Rakesh Honawad, a full-stack developer who thrives on turning ideas into reality with clean, maintainable code.`,
+    content: `I'm Rakesh Honawad, a software developer who thrives on turning ideas into reality with clean, maintainable code.`,
   },
   {
     id: 'passion',

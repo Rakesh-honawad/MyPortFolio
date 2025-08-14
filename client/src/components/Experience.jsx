@@ -4,6 +4,16 @@ import 'aos/dist/aos.css';
 
 const experiences = [
   {
+  title: 'Java Developer Intern',
+  company: 'iStudio',
+  duration: 'May 2025 - August 2025',
+  points: [
+    'Completed a 3-month intensive internship focused on Core Java, covering OOP principles, exception handling, multithreading, collections, file I/O, and JDBC.',
+    'Built modular Java applications implementing CRUD operations using JDBC, with debugging and performance optimization techniques.',
+    'Collaborated on peer-reviewed mock projects, applied test-driven development practices, and used Git for version control and task tracking.'
+  ],
+},
+  {
     title: 'Signal Communication Intern',
     company: 'South Western Railways',
     duration: 'February 2024 - April 2024',

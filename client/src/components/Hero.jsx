@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import res from '../assets/resume.pdf';
+import res from '../assets/Rakesh_Honawad_resume.pdf';
 
 const Hero = () => {
   useEffect(() => {
