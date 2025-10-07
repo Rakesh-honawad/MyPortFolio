@@ -14,6 +14,13 @@ const projectData = [
     technologies: ["React","Tailwindcss","css","vite","Framer Motions","Draggable Interface"],
     description: "A fully responsive and interactive personal portfolio website designed to highlight my skills, projects, and experience. The site features a unique book-style project layout, draggable Read More panels, custom dark mode toggle with animation, and smooth transitions — all optimized for performance and mobile responsiveness. Built to reflect both design and development proficiency.",
     github: "https://github.com/Rakesh-honawad/Portfolio.git"
+  },{
+    title: "Inventory Management System",
+    image: inventory, // ← make sure you import or define this image variable
+    technologies: ["Spring Boot", "MongoDB", "REST API", "Postman"],
+    description:
+      "A backend application that manages product inventory using CRUD operations. Features include adding, updating, deleting, and retrieving products, as well as managing stock levels and identifying low-stock items. Built using Spring Boot and MongoDB with clean, modular service and controller layers.",
+    github: "https://github.com/Rakesh-honawad/Inventory-Management-System"
   },
   {
     title: "ProcterVisionAI",
